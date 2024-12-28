@@ -1,0 +1,196 @@
+/* Reseteo básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffddf4, #d1e7ff);
+}
+
+/* Estilos para el logo */
+.logo {
+    width: 150px; /* Ajusta el tamaño según tus necesidades */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-right: 20px; /* Espacio entre el logo y el menú de navegación */
+    vertical-align: middle;
+}
+
+header {
+    background-color: #dd20d4;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin-bottom: 5px;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.centrado {
+    text-align: center;
+}
+
+/* Estilo para las secciones */
+section {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Contenedor Flex */
+.contenedor-productos {
+    display: flex; /* Usamos flexbox para organizar los productos */
+    flex-wrap: wrap; /* Permite que los productos se organicen en varias filas */
+    justify-content: space-between; /* Espacio uniforme entre productos */
+    align-items: flex-start; /* Alineación de los productos */
+    padding: 20px;
+}
+
+/* Estilos de cada Producto */
+.producto {
+    background-color: white;
+    width: 30%; /* Cada producto ocupa un 30% del ancho del contenedor */
+    margin-bottom: 20px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(233, 23, 23, 0.2); /* Sombra sutil */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+/* Imagen */
+.producto img {
+    max-width: 100%; /* La imagen ocupa el 100% del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    object-fit: cover; /* Ajusta la imagen sin distorsión */
+}
+
+/*Reseñas */
+#reseñas {
+    padding: 20px;
+    text-align: center;
+}
+
+.grid-reseñas {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    padding: 10px;
+}
+
+.reseña {
+    background-color: #dd20d4;
+    color: #fff;
+    border: 1px solid #ddd;
+    padding: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Productos en carrito */
+.producto-carrito {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.total-carrito {
+    text-align: right;
+    margin-top: 20px;
+}
+
+button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+footer{
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Media Queries para Responsividad */
+
+/* Para pantallas medianas (tablets) */
+@media (max-width: 768px) {
+    /* Encabezado y menú */
+    header h1 {
+        font-size: 1.8rem;
+    }
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+
+    /* Productos en una sola columna */
+    .contenedor-productos {
+        flex-direction: column;
+        align-items: center;
+    }
+    .producto {
+        width: 80%; /* Ajuste de ancho */
+    }
+}
+
+/* Para pantallas pequeñas (móviles) */
+@media (max-width: 500px) {
+    .logo {
+        width: 100px; /* Reduce tamaño del logo */
+    }
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    /* Navegación en bloque */
+    nav ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        margin: 5px 0;
+    }
+
+    /* Productos en pantalla completa */
+    .producto {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    /* Reseñas */
+    .grid-reseñas {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+
+    }
+
+    /* Footer */
+    footer {
+        text-align: center;
+    }
+}
+
+
