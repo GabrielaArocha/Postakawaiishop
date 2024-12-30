@@ -243,13 +243,18 @@ footer{
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 10px;
-
     }
 
     /* Footer */
     footer {
         text-align: center;
     }
-}
 
+    /* Aseguramos que el contenedor de productos use flex en móviles */
+    .contenedor-productos {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
