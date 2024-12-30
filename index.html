@@ -5,21 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Postakawaii Shop</title>
     <link rel="stylesheet" href="./css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Google Fonts -->
+    <style>
+        /* Embebido de CSS básico */
+        body {
+            font-family: 'Quicksand', sans-serif;
+        }
+        .producto {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .producto:hover {
+            transform: scale(1.05);
+        }
+
+        .contenedor-productos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+
+        .producto img {
+            max-width: 100%;
+            border-radius: 5px;
+        }
+
+        .navbar ul {
+            display: flex;
+            justify-content: space-around;
+            list-style-type: none;
+            padding: 0;
+        }
+        .navbar ul li {
+            margin: 0 10px;
+        }
+
+        .grid-reseñas {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 
     <!-- Encabezado -->
     <header>
-    <!-- Logo -->
         <a href="index.html">
-        <img src="./img/logo.jpeg" alt="Logo Postakawaii Shop" class="logo">
+            <img src="./img/logo.jpeg" alt="Logo Postakawaii Shop" class="logo">
         </a>
-
         <h1>Postakawaii Shop</h1>
-        <nav>
+        <nav class="navbar">
             <ul>
                 <li><a href="index.html">Inicio</a></li>
-                <!--<li><a href="carrito.html">Carrito</a></li>-->  
                 <li><a href="carrito.html">Carrito <span id="contador-carrito">0</span></a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
@@ -27,70 +72,11 @@
     </header>
 
     <main>
-      
-    <!-- Sección de Productos Destacados -->
-       <h2 class="centrado">Productos Destacados</h2>
-       
-    <!-- Contenedor de productos (FLEXBOX) -->
-        <section class="contenedor-productos">    
-    <!-- Producto 1 -->
+        <h2 class="centrado">Productos Destacados</h2>
 
-        <div class="producto">
-            <img src="./img/Monedero Capibara.jpeg" alt="Capibara Purse">
-            <h3>Cartera Capibara</h3>
-            <p>Cartera Monedero Cute Capibara Collection; 6 colores disponibles; 15*5*13cm</p>
-            <p>$18.500</p>
-            <button>Añadir al Carrito</button>
-        </div>
-
-    <!-- Producto 2 -->
-
-        <div class="producto">
-            <img src="./img/Monederos Hello Kitty.jpeg" alt="Hello Kitty and friends">
-            <h3>Carteras Hello Kitty and Friends</h3>
-            <p>Cartera Monedero Hello Kitty Collection. 7 colores disponibles; 15*5*13cm</p>
-            <p>$15.000</p>
-            <button>Añadir al Carrito</button>
-        </div>
-
-    <!-- Producto 3 -->
-        <div class="producto">
-            <img src="./img/Cartera Sanrio.jpeg" alt="Sanrio Purse">
-            <h3>Cartera Sanrio Collection 2024</h3>
-            <p>Cartera Redonda Sanrio Collection; 7 colores disponibles; 15*5*13cm</p>
-            <p>$14.500</p>
-            <button>Añadir al Carrito</button>
-        </div>
-
-    <!-- Producto 4 -->
-        <div class="producto">
-            <img src="./img/Llaveros.jpeg" alt="Sanrio Purse">
-            <h3>Llaveros Souvenir Melody Correa</h3>
-            <p>Llaveros Personajes Hello Kitty, My Melody y Otros; Silicona; 50g</p>
-            <p>$3.500</p>
-            <button>Añadir al Carrito</button>
-        </div>
-    
-    <!-- Producto 5 -->
-        <div class="producto">
-            <img src="./img/Botellita.jpeg" alt="Botella animales">
-            <h3>Botella Térmica Farm Animals</h3>
-            <p>Botella Térmica 650ml; Acero Inoxidable; Libre BPA / BPA Free</p>
-            <p>$25.000</p>
-            <button>Añadir al Carrito</button>
-        </div>
-
-    <!-- Producto 6 -->
-        <div class="producto">
-            <img src="./img/Peluche Cabibara.jpeg" alt="Sanrio Purse">
-            <h3>Peluche Capibara Kawaii</h3>
-            <p> Peluche de Capybara (Carpincho) Muy Suave y esponjosos; 25cm; 5 modelos</p>
-            <p>$30.000</p>
-            <button>Añadir al Carrito</button>
-        </div>
-
-        <!--    FIN Contenedor de productos (FLEXBOX) -->
-
+        <!-- Contenedor de productos (FLEXBOX) -->
+        <section class="contenedor-productos" id="contenedor-productos">
+            <!-- Los productos se cargarán aquí dinámicamente -->
         </section>
 
         <section id="reseñas">
@@ -114,14 +100,15 @@
                 </div>
             </div>
         </section>
-        
     </main>
 
     <!-- Pie de página -->
     <footer>
         <p>© 2024 Postakawaii Shop</p>
     </footer>
-      <!-- Enlace al archivo JS -->
+
+    <!-- Enlace al archivo JS -->
     <script src="./script.js/index.js"></script>
 </body>
 </html>
+

@@ -1,6 +1,9 @@
 // Variable global para almacenar los productos seleccionados
 let carrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
+// URL de la API de productos (esto se debe cambiar según la API que quieras consumir)
+const apiUrl = "https://fakestoreapi.com/products";  // Puedes cambiar esta URL a la de tu API
+
 // Función para agregar productos al carrito
 const agregarAlCarrito = (nombre, precio) => {
     // Verificar si el producto ya está en el carrito
@@ -32,12 +35,16 @@ const actualizarContador = () => {
     }
 };
 
-// Función para crear y mostrar los productos en la página
-const mostrarProductos = () => {
+// Función para crear y mostrar los productos en la página (productos de la API y estáticos)
+const mostrarProductos = (productos) => {
     const contenedorProductos = document.querySelector(".contenedor-productos");
 
-    // Array de productos (definido solo una vez)
-    const productos = [
+    // Asegúrate de que los productos no se dupliquen al cargar la página
+    // Limpiar contenedor antes de agregar nuevos productos
+    contenedorProductos.innerHTML = '';
+
+    // Productos estáticos definidos
+    const productosEstáticos = [
         {
             nombre: "Cartera Capibara",
             descripcion: "Cartera Monedero Cute Capibara Collection; 6 colores disponibles; 15*5*13cm",
@@ -76,12 +83,8 @@ const mostrarProductos = () => {
         }
     ];
 
-    // Asegúrate de que los productos no se dupliquen al cargar la página
-    // Limpiar contenedor antes de agregar nuevos productos
-    contenedorProductos.innerHTML = '';
-
-    // Crear los productos dinámicamente
-    productos.forEach(producto => {
+    // Agregar los productos estáticos al contenedor
+    productosEstáticos.forEach(producto => {
         const divProducto = document.createElement("div");
         divProducto.classList.add("producto");
 
@@ -95,6 +98,33 @@ const mostrarProductos = () => {
 
         contenedorProductos.appendChild(divProducto);
     });
+
+    // Crear los productos obtenidos desde la API y agregarlos al contenedor
+    productos.forEach(producto => {
+        const divProducto = document.createElement("div");
+        divProducto.classList.add("producto");
+
+        divProducto.innerHTML = `
+            <img src="${producto.image}" alt="${producto.title}">
+            <h3>${producto.title}</h3>
+            <p>${producto.description}</p>
+            <p>$${producto.price}</p>
+            <button onclick="agregarAlCarrito('${producto.title}', ${producto.price})">Añadir al Carrito</button>
+        `;
+
+        contenedorProductos.appendChild(divProducto);
+    });
+};
+
+// Función para consumir la API y obtener los productos
+const obtenerProductos = async () => {
+    try {
+        const response = await fetch(apiUrl); // Consumir la API
+        const data = await response.json();  // Convertir la respuesta a JSON
+        mostrarProductos(data);  // Mostrar los productos en el HTML
+    } catch (error) {
+        console.error("Error al obtener los productos:", error);
+    }
 };
 
 // Función para inicializar el carrito al cargar la página
@@ -105,8 +135,8 @@ const inicializarCarrito = () => {
 
 // Inicializar los productos y el carrito cuando se carga la página
 window.addEventListener("DOMContentLoaded", () => {
-    mostrarProductos();
-    inicializarCarrito();
+    obtenerProductos();  // Obtener productos desde la API
+    inicializarCarrito(); // Inicializar el carrito
 });
 
 // Guardar el carrito en el almacenamiento local antes de cerrar la página

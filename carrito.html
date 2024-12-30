@@ -11,38 +11,41 @@
 
     <!-- Encabezado -->
     <header>
-         <!-- Logo -->
-         <a href="carrito.html">
+        <!-- Logo -->
+        <a href="carrito.html">
             <img src="./img/logo.jpeg" alt="Logo Postakawaii Shop" class="logo">
-            </a>
+        </a>
         <h1>Carrito de Compras</h1>
-        <nav>
-            <ul>
+        <nav class="navbar">
+            <ul class="navbar-list">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="carrito.html">Carrito</a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
+        
     </header>
 
     <!-- Sección del Carrito -->
     <section id="carrito">
         <h2>Productos en tu Carrito</h2>
         
-        <!-- Ejemplo de producto en el carrito -->
-        <div class="producto-carrito">
-            <p>Nombre del Producto</p>
-            <p>Precio: $00.00</p>
-            <p>Cantidad: 1</p>
-            <button>Eliminar</button>
-        </div>
+        <!-- Aquí se mostrarán los productos -->
+        <div id="productosCarrito"></div>
 
         <!-- Total -->
         <div class="total-carrito">
-            <p>Total: $00.00</p>
-            <button>Proceder al Pago</button>
+            <p>Total: $0.00</p>
+            <button onclick="procederPago()">Proceder al Pago</button>
         </div>
     </section>
+    <section id="productos">
+        <h2>Productos</h2>
+        <div id="productos-lista" class="productos-lista">
+            <!-- Los productos se agregarán aquí dinámicamente -->
+        </div>
+    </section>
+    
 
     <!-- Pie de página -->
     <footer>

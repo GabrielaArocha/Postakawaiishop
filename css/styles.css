@@ -7,7 +7,7 @@
 
 /* Estilos generales */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Quicksand', sans-serif;
     background: linear-gradient(135deg, #ffddf4, #d1e7ff);
 }
 
@@ -124,6 +124,65 @@ button {
     padding: 5px 10px;
     cursor: pointer;
 }
+
+/* Agregar una animación de desvanecimiento y desplazamiento al mostrar los productos */
+.producto-carrito {
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: fadeInUp 0.5s ease-in-out forwards;
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Estilo para el navbar */
+.navbar {
+    background-color: #990380;
+    padding: 10px;
+}
+
+.navbar-list {
+    display: flex;
+    justify-content: center;  /* Centra los enlaces */
+    gap: 20px;  /* Espaciado entre los elementos */
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-list li {
+    display: inline-block;
+}
+
+.navbar-list a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.navbar-list a:hover {
+    background-color: #5c6bc0;
+}
+
+/* Responsividad: en pantallas pequeñas */
+@media (max-width: 768px) {
+    .navbar-list {
+        flex-direction: column; /* Cambia la orientación a columna */
+        align-items: center;
+    }
+}
+
 
 footer{
     padding: 20px;
