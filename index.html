@@ -7,55 +7,40 @@
     <link rel="stylesheet" href="./css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Google Fonts -->
     <style>
-        /* Embebido de CSS básico */
-        body {
-            font-family: 'Quicksand', sans-serif;
-        }
-        .producto {
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
+        /* Navbar general */
+        .navbar {
+            background-color: #990380;
+            padding: 10px;
         }
 
-        .producto:hover {
-            transform: scale(1.05);
-        }
-
-        .contenedor-productos {
+        .navbar-list {
             display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            justify-content: center;
             gap: 20px;
-        }
-
-        .producto img {
-            max-width: 100%;
-            border-radius: 5px;
-        }
-
-        .navbar ul {
-            display: flex;
-            justify-content: space-around;
             list-style-type: none;
+            margin: 0;
             padding: 0;
         }
-        .navbar ul li {
-            margin: 0 10px;
+
+        .navbar-list li {
+            display: inline-block;
         }
 
-        .grid-reseñas {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 20px;
-            margin-top: 40px;
+        .navbar-list a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar-list a:hover {
+            background-color: #5c6bc0;
         }
     </style>
 </head>
 <body>
-
     <!-- Encabezado -->
     <header>
         <a href="index.html">
@@ -63,22 +48,19 @@
         </a>
         <h1>Postakawaii Shop</h1>
         <nav class="navbar">
-            <ul>
+            <ul class="navbar-list">
                 <li><a href="index.html">Inicio</a></li>
                 <li><a href="carrito.html">Carrito <span id="contador-carrito">0</span></a></li>
                 <li><a href="contacto.html">Contacto</a></li>
             </ul>
         </nav>
     </header>
-
     <main>
         <h2 class="centrado">Productos Destacados</h2>
-
         <!-- Contenedor de productos (FLEXBOX) -->
         <section class="contenedor-productos" id="contenedor-productos">
             <!-- Los productos se cargarán aquí dinámicamente -->
         </section>
-
         <section id="reseñas">
             <h2>Reseñas</h2>
             <div class="grid-reseñas">
@@ -101,14 +83,13 @@
             </div>
         </section>
     </main>
-
     <!-- Pie de página -->
     <footer>
         <p>© 2024 Postakawaii Shop</p>
     </footer>
-
     <!-- Enlace al archivo JS -->
     <script src="./script.js/index.js"></script>
 </body>
 </html>
+
 
